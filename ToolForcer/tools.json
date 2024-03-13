@@ -1,0 +1,240 @@
+[
+    {
+        "tool_name": "who_am_i",
+        "tool_description": "Returns the string ID of the current user",
+        "args": [],
+        "output": {
+            "argument_type": "str",
+            "is_array": false,
+            "is_required": true
+        }
+    },
+    {
+        "tool_name": "get_sprint_id",
+        "tool_description": "Returns the ID\nof the current\nsprint",
+        "args": [],
+        "output": {
+            "argument_type": "str",
+            "is_array": false,
+            "is_required": true
+        }
+    },
+    {
+        "tool_name": "works_list",
+        "tool_description": "Returns a list of work items matching the request",
+        "args": [
+            {
+                "argument_name": "applies_to_part",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": false,
+                "argument_description": "Filters for work belonging to any of the provided parts",
+                "example": ["FEAT-123",
+                "ENH-123",
+                "PROD-123",
+                "CAPL-123"]
+            },
+            {
+                "argument_name": "created_by",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": false,
+                "argument_description": "Filters for work created by any of these users",
+                "example":["DEVU-123"]
+            },
+            {
+                "argument_name": "issue_priority",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": false,
+                "argument_description": "Filters for issues with any of the provided priorities. Allowed values: p0, p1, p2, p3. The lower the value, higher the priority"
+            },
+            {
+                "argument_name": "issue.rev_orgs",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": false,
+                "argument_description": "Filters for issues with any of the provided Rev organizations, using their ID",
+                "example":["REV-123"]
+            },
+            {
+                "argument_name": "limit",
+                "argument_type": "int",
+                "is_array": false,
+                "is_required": false,
+                "argument_description": "The maximum number of works to return. The default is '50'"
+            },
+            {
+                "argument_name": "owned_by",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": false,
+                "argument_description": "Filters for work owned by any of these users",
+                "example":["DEVU-123"]
+            },
+            {
+                "argument_name": "stage_name",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": false,
+                "argument_description": "Filters for records in the provided stage(s) by name"
+            },
+            {
+                "argument_name": "ticket_need_response",
+                "argument_type": "boolean",
+                "is_array": false,
+                "is_required": false,
+                "argument_description": "Filters for tickets that need a response"
+            },
+            {
+                "argument_name": "ticket_rev_org",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": false,
+                "argument_description": "Filters for tickets associated with any of the provided Rev organizations (customers)",
+                "example":["REV-123"]
+            },
+            {
+                "argument_name": "ticket_severity",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": false,
+                "argument_description": "Filters for tickets with any of the provided severities. Allowed values: blocker, high, low, medium"
+            },
+            {
+                "argument_name": "ticket_source_channel",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": false,
+                "argument_description": "Filters for tickets with any of the provided source channels"
+            },
+            {
+                "argument_name": "type",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": false,
+                "argument_description": " Filters for work of the provided types. Allowed values: issue, ticket, task. Must be used, if arguments referencing tickets, issues or tasks are being used."
+            }
+        ],
+        "output": {
+            "argument_type": "any",
+            "is_array": false,
+            "is_required": true
+        }
+    },
+    {
+        "tool_name": "summarize_objects",
+        "tool_description": "Summarizes a list of objects. The logic of how to summarize a particular object type is an internal implementation detail.",
+        "args": [
+            {
+                "argument_name": "objects",
+                "argument_type": "any",
+                "is_array": true,
+                "is_required": true,
+                "argument_description": "List of objects to summarize"
+            }
+        ],
+        "output": {
+            "argument_type": "any",
+            "is_array": false,
+            "is_required": true
+        }
+    },
+    {
+        "tool_name": "prioritize_objects",
+        "tool_description": "Returns a list of objects sorted by priority. The logic of what constitutes priority for a given object is an internal implementation detail",
+        "args": [
+            {
+                "argument_name": "objects",
+                "argument_type": "any",
+                "is_array": false,
+                "is_required": false,
+                "argument_description": "A list of objects to be prioritized"
+            }
+        ],
+        "output": {
+            "argument_type": "any",
+            "is_array": true,
+            "is_required": true
+        }
+    },
+    {
+        "tool_name": "add_work_items_to_sprint",
+        "tool_description": "Adds the given work items to the sprint",
+        "args": [
+            {
+                "argument_name": "work_ids",
+                "argument_type": "str",
+                "is_array": true,
+                "is_required": true,
+                "argument_description": " A list of work item IDs to be added to the sprint."
+            },
+            {
+                "argument_name": "sprint_id",
+                "argument_type": "str",
+                "is_array": false,
+                "is_required": true,
+                "argument_description": "The ID of the sprint to which the work items should be added"
+            }
+        ],
+        "output": {
+            "argument_type": "boolean",
+            "is_array": false,
+            "is_required": true
+        }
+    },
+    {
+        "tool_name": "get_similar_work_items",
+        "tool_description": "Returns a list of work items that are similar to the given work item",
+        "args": [
+            {
+                "argument_name": "work_id",
+                "argument_type": "str",
+                "is_array": false,
+                "is_required": true,
+                "argument_description": " The ID of the work item for which you want to find similar items"
+            }
+        ],
+        "output": {
+            "argument_type": "str",
+            "is_array": true,
+            "is_required": true
+        }
+    },
+    {
+        "tool_name": "search_object_by_name",
+        "tool_description": "Given a search string, returns the id of a matching object in the system of record. If multiple matches are found, it returns the one where the confidence is highest",
+        "args": [
+            {
+                "argument_name": "query",
+                "argument_type": "str",
+                "is_array": false,
+                "is_required": true,
+                "argument_description": "The search string, could be for example customer (rev) name, part name, user name. Work items are not counted as objects"
+            }
+        ],
+        "output": {
+            "argument_type": "any",
+            "is_array": false,
+            "is_required": true
+        }
+    },
+    {
+        "tool_name": "create_actionable_tasks_from_text",
+        "tool_description": "Given a text, extracts actionable insights, and creates tasks for them, which are kind of a work item.",
+        "args": [
+            {
+                "argument_name": "text",
+                "argument_type": "str",
+                "is_array": false,
+                "is_required": true,
+                "argument_description": "The text from which the actionable insights need to be created."
+            }
+        ],
+        "output": {
+            "argument_type": "str",
+            "is_array": true,
+            "is_required": true
+        }
+    }
+]
