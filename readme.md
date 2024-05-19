@@ -1,3 +1,6 @@
+# Publication
+Please Refer to following ArXiv [link] (https://arxiv.org/abs/2401.15724) for the Pre-Print 
+
 ## Code Submission by Team-31
 
 Files:
