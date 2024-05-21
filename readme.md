@@ -1,5 +1,8 @@
-# Publication
-Please Refer to following ArXiv [link](https://arxiv.org/abs/2401.15724) for the Pre-Print 
+## Publication
+Following InterIIT Tech Meet 12.0, the research accomplished as a part of the project was documented and uploaded at ArXiv. Please Refer to following ArXiv [link](https://arxiv.org/abs/2401.15724) for the Pre-Print 
+
+## Introduction
+This project was submitted by Team_31 as a part of InterIIT Tech Meet 12.0. The Problem Statement was provided by DevRev
 
 ## Code Submission by Team-31
 
